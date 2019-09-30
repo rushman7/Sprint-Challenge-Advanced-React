@@ -1,14 +1,17 @@
 import React from 'react';
 import * as rtl from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
-import App from './App';
+import NavBar from './components/NavBar';
 
 describe('App', () => {
-  it('renders a span with the text Hello World', () => {
-    const wrapper = rtl.render(<App />);
-    const element = wrapper.queryByText(/hello world/i);
-
-    console.log(element.textContent);
+  it('renders a h1 with the text user data', () => {
+    const wrapper = rtl.render(
+        <NavBar>
+          <h1></h1>
+        </NavBar>
+      );
+    const element = wrapper.queryByText(/user data/i);
+    
     expect(element).toBeInTheDocument();
     expect(element).toBeTruthy();
     expect(element).toBeVisible();
